@@ -11,39 +11,48 @@ let password1 = document.getElementById("passwordid");
 function validate() {
 var errormessage = ""; 
 
-//error for username
-    if (username.value == "") {
-        errormessage += "box is empty \n";
-    }
-   
-//error for first name
-    if (firstname.value == "") {
-        errormessage += "First name is empty\n"
-    }
-    
-//error for last name
-    if (lastname.value == "") {
-        errormessage += "Last name is empty\n"
-    }
+//Errors for username
+if (username.value == "" ) {
+    errormessage += "Please type in a username \n";
+}
+else if (username.value.length  <4){
+    errormessage += "Submit a username with at least 4 characters\n"
+}
 
-//error for age
-    if(age.value == "") {
-    errormessage += "Skriv din alder i tal\n"
-    }
+//Error for first name
+if (firstname.value == "") {
+    errormessage += "Please type in a first name\n"
+}
 
-//error for gender
-    if(gender.value == "") {
-        errormessage += "What is your gender?\n";
-    }
+//Error for last name
+if (lastname.value == "") {
+    errormessage += "Please type in a last name\n"
+}
 
-//error for interest
-    if(interest.value == "")
-    errormessage += "Write your interest\n"
+//Errors for age
+if(age.value == "") {
+errormessage += "Your age has to be an integer\n"
+}
+else if(age.value > 110){
+    errormessage += "Are you a wizard? Please enter a valid age\n"
+}
 
-//error for password
-    if (password1.value == "" || password1.value.length <6){
-        errormessage += "Submit a password with at least 6 characters\n"
-    }
+//Error for gender
+if(gender.value == "") {
+    errormessage += "Please type in a gender\n";
+}
+
+//Error for interest
+if(interest.value == "")
+errormessage += "Let other people know of your interest\n"
+
+//Errors for password
+if (password1.value == "" || password1.value.length <6){
+    errormessage += "Please submit a password with at least 6 characters\n"
+}
+else if (password1.value.search(/[a-z]/i) < 0 || password1.value.search(/[A-Z]/i) < 0 || password1.value.search(/[0-9]/) < 0) {
+   errormessage += ("Your password must contain at least one lower case letter, \none upper case letter, \nand a number."); 
+}
 
 //If errors have been added to the variable the error messages will be alerted
 if (errormessage != ""){
