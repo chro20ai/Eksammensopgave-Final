@@ -19,17 +19,18 @@ routermatch.post('/', (req, res) => {
      });
      //I need to delete the likes in likes.json to check for new matches
      //I could only make it use by deleting one like
-     fs.readFile(likesPath, "utf8", (err, data) => {
+     
+     
+        fs.readFile(likesPath, "utf8", (err, data) => {
          let parsedData = JSON.parse(data);
-         for(var i = parsedData.length -1; i>=0; i--){
-             //for(var i=0; i < parsedData.length; i++){
+             for(var i=0; i < parsedData.length; i++){
  
              //Find the likes in likes.json from the new match
              if(req.body.id1 == parsedData[i].id || req.body.id1 == parsedData[i].loggedIn){
                  if(req.body.id2 == parsedData[i].id || req.body.id2 == parsedData[i].loggedIn){
                      if (i > -1) {
                          //Splice the user from likes.json
-                         parsedData.splice(i, 1);
+                         parsedData.splice(i);
                          fs.writeFile(likesPath, JSON.stringify(parsedData),(e) => {
                          });
                        }
