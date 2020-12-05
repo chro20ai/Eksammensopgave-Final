@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <h1>
+        Du er ikke logget ind. 
+    </h1>
+
+    <link rel="stylesheet" href="styles.css">
+    <title>Profile site</title>
+</head>
+<body>  
+<button id="startDating" onclick="location.href = 'date.html'">Go to your dating site</button>
+
+<br>
+<br>
+
+    <table>
+        <button id="submituser" onclick= "deleteuser()">Delete Your User</button>
+        <button onclick="location.href = 'update.html'">Update profile</button>
+        <button id="getuser" onclick= "getuser()">Overview of your profile</button>
+    </table>
+
+    <p id="overview"></p>
+
+<table>
+
+
+
+     <button id="logoutuser" onclick= "logout()">Log Out</button>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="../Controller/profile.js"></script>
+</html>

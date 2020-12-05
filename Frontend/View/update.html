@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Opdater profil side</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="changeData">
+    <br>
+    <div>    
+        <h1>You must Change all your data or type in your existing data to change your profile</h1>
+    </div>
+    <br>
+    <br>
+    <div class="form">
+        <table class="patchTable">
+    <input type="text" id="patchUsername" placeholder="Change Username"></input>
+    <input type="password" id="patchPassword" placeholder="Change Password"></input>
+    <input type="text" id="patchFirstName" placeholder="Change First Name"></input>
+    <input type="text" id="patchLastName" placeholder="Change Last Name"></input>
+    <input type="text" id="patchAge" placeholder="Change Age"></input>
+    <input type="text" id="patchGender" placeholder="Change Gender"></input>
+    <input type="text" id="patchInterest" placeholder="Change Interest"></input>
+    <input type="submit" id="submitUpdate" value="Submit" onclick= "updateFunction()"/> 
+    <a href="profile.html">Or go back to profile</a>
+
+</table>
+</div>    
+</body>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="../Controller/update.js"></script>
+</html>
