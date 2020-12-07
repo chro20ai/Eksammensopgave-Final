@@ -1,61 +1,61 @@
 //Getting the user input
-let username = document.getElementById("usernameid");
-let firstname = document.getElementById("firstnameid");
-let lastname = document.getElementById("lastnameid");
-let age = document.getElementById("ageid");
-let gender = document.getElementById("genderid");
-let interest = document.getElementById("interestid");
-let password1 = document.getElementById("passwordid");
+let username = document.getElementById('usernameid');
+let firstname = document.getElementById('firstnameid');
+let lastname = document.getElementById('lastnameid');
+let age = document.getElementById('ageid');
+let gender = document.getElementById('genderid');
+let interest = document.getElementById('interestid');
+let password1 = document.getElementById('passwordid');
 
 //Function to validate if user fullfil all requirements
-function validate() {
-var errormessage = ""; 
+function validateNewUser() {
+var errormessage = ''; 
 
 //Errors for username
-if (username.value == "" ) {
-    errormessage += "Please type in a username \n";
+if (username.value == '' ) {
+    errormessage += 'Please type in a username \n';
 }
 else if (username.value.length  <4){
-    errormessage += "Submit a username with at least 4 characters\n"
+    errormessage += 'Submit a username with at least 4 characters\n'
 }
 
 //Error for first name
-if (firstname.value == "") {
-    errormessage += "Please type in a first name\n"
+if (firstname.value == '') {
+    errormessage += 'Please type in a first name\n'
 }
 
 //Error for last name
-if (lastname.value == "") {
-    errormessage += "Please type in a last name\n"
+if (lastname.value == '') {
+    errormessage += 'Please type in a last name\n'
 }
 
 //Errors for age
-if(age.value == "") {
-errormessage += "Your age has to be an integer\n"
+if(age.value == '') {
+errormessage += 'Your age has to be an integer\n'
 }
 else if(age.value > 110){
-    errormessage += "Are you a wizard? Please enter a valid age\n"
+    errormessage += 'Are you a wizard? Please enter a valid age\n'
 }
 
 //Error for gender
-if(gender.value == "") {
-    errormessage += "Please type in a gender\n";
+if(gender.value == '') {
+    errormessage += 'Please type in a gender\n';
 }
 
 //Error for interest
-if(interest.value == "")
-errormessage += "Let other people know of your interest\n"
+if(interest.value == '')
+errormessage += 'Let other people know of your interest\n'
 
 //Errors for password
-if (password1.value == "" || password1.value.length <6){
-    errormessage += "Please submit a password with at least 6 characters\n"
+if (password1.value == '' || password1.value.length <6){
+    errormessage += 'Please submit a password with at least 6 characters\n'
 }
 else if (password1.value.search(/[a-z]/i) < 0 || password1.value.search(/[A-Z]/i) < 0 || password1.value.search(/[0-9]/) < 0) {
-   errormessage += ("Your password must contain at least one lower case letter, \none upper case letter, \nand a number."); 
+   errormessage += 'Your password must contain at least one lower case letter, \none upper case letter, \nand a number.'; 
 }
 
 //If errors have been added to the variable the error messages will be alerted
-if (errormessage != ""){
+if (errormessage != ''){
     alert(errormessage)
 }
 
@@ -72,10 +72,10 @@ else {
                 interest : interest.value
             }
             //Posting the data
-            axios.post("http://localhost:3000/users", userdata)
+            axios.post('http://localhost:3000/users', userdata)
             .then(function(response){
             })
          alert('You can now log in to the system');
-        window.location = "login.html";
+        window.location = 'login.html';
 		}
 }

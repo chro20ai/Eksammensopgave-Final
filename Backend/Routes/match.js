@@ -9,10 +9,10 @@ const likesPath = '../Model/likes.json';
 //CREATE match
 routermatch.post('/', (req, res) => {
     let content;
-     fs.readFile(matchPath, "utf8", (err, data) => {
+     fs.readFile(matchPath, 'utf8', (err, data) => {
      let parsedData = JSON.parse(data);
      const newMatchId = parsedData.length;
-     req.body.MatchId = newMatchId
+     req.body.matchId = newMatchId
      parsedData.push(req.body)
      fs.writeFile(matchPath, JSON.stringify(parsedData),(e) => {
          content = parsedData
@@ -21,7 +21,7 @@ routermatch.post('/', (req, res) => {
      //I could only make it use by deleting one like
      
      
-        fs.readFile(likesPath, "utf8", (err, data) => {
+        fs.readFile(likesPath, 'utf8', (err, data) => {
          let parsedData = JSON.parse(data);
              for(var i=0; i < parsedData.length; i++){
  
@@ -47,7 +47,7 @@ routermatch.post('/', (req, res) => {
 
 //GET matches
 routermatch.get('/showmatches/', (req, res) => {
-    fs.readFile(matchPath, "utf8", (err, data) => {
+    fs.readFile(matchPath, 'utf8', (err, data) => {
         let parsedData = JSON.parse(data);
         res.send(parsedData);
     }
@@ -56,13 +56,13 @@ routermatch.get('/showmatches/', (req, res) => {
 
 //Delete matches
 routermatch.delete('/deletematch/:id', (req, res) => {
-    fs.readFile(matchPath, "utf8", (err, data) => {
+    fs.readFile(matchPath, 'utf8', (err, data) => {
         // add the new user
         let parsedData = JSON.parse(data)
-        const userId = req.params["id"];
+        const userId = req.params['id'];
         delete parsedData[userId];
-//filtermetoden sørger for, at y ikke må være lig nul
-        parsedData = parsedData.filter(function(y) {return y !== null});
+        //Filter method removes null element from array
+        parsedData = parsedData.filter(function(removeNull) {return removeNull !== null});
 
         fs.writeFile(matchPath, JSON.stringify(parsedData), () => {
             res.status(200).send(`users id:${userId} removed`);
